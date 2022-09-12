@@ -1,5 +1,7 @@
 import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/r132/three.module.js";
-import { ARButton } from " .libs/threejs-r132/examples/jsm/webxr/ARButton.js";
+import { ARButton } from "./libs/three.js-r132/examples/jsm/webxr/ARButton.js";
+
+// import {  } from "./libs/three.js-r132/examples/jsm/webxr/ARButton.js";
 // import "https://cdnjs.cloudflare.com/ajax/libs/three.js/r132/three.module.js";
 // import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/r132/three.module.js";
 // instead of importing threejs, you use it through the library mindar
@@ -56,12 +58,25 @@ document.addEventListener(
       });
 
       // part 4
-      const arButton = new ARButton.createButton(renderer, {
+      const arButton = ARButton.createButton(renderer, {
         optionalFeatures: ["dom-overlay"],
         domOverlay: {
           root: document.body,
         },
       });
+
+      const controller = renderer.xr.getController(0);
+      console.log(controller);
+      const events = document.querySelector('#events');
+      controller.addEventListener('selectstart', () => {
+        
+      })
+      controller.addEventListener('selectend', () => {
+
+      })
+      controller.addEventListener('select', () => {
+
+      })
 
       document.body.appendChild(arButton)
 
