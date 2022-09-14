@@ -69,12 +69,14 @@ document.addEventListener(
       console.log(controller);
       const events = document.querySelector('#events');
       controller.addEventListener('selectstart', () => {
-        
+        events.prepend('select start \n')        
       })
       controller.addEventListener('selectend', () => {
-
+        events.prepend('select end \n')        
+        
       })
       controller.addEventListener('select', () => {
+        events.prepend('select \n')        
 
       })
 
